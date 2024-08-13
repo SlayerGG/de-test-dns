@@ -36,7 +36,6 @@ cur.execute("""
 		Ссылка uuid UNIQUE,
 		Наименование text
 		)""")
-#Использование copy_expert() из psycopg2 быстрее, чем to_sql() из pandas
 with open('test_data/t_cities.csv', 'r', encoding='utf-8') as file:
 	cur.copy_expert("COPY Cities FROM stdin WITH csv HEADER", file)
 cur.execute("""
